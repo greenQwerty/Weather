@@ -19,7 +19,7 @@ public class RequestsSteps {
     }
 
     @И("^проставили headers для отправки запроса:$")
-    public void configRequestToMS(DataTable headersParam) throws Exception {
+    public void configRequestToMS(DataTable headersParam) {
         httpHeaders = headersParam.asMap(String.class, String.class);
     }
 

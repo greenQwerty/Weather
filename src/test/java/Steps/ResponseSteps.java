@@ -14,9 +14,7 @@ public class ResponseSteps {
     @И("^проверили полученный ответ:$")
     public void checkResponse(DataTable params) {
         Map param = params.asMap(String.class, String.class);
-        param.forEach((k, v) -> Assert.assertNotEquals(
-                "Значения не верны",
-                v.equals(getResponse().jsonPath().get((String) k))));
-
+        param.forEach((k, v) ->
+                Assert.assertEquals("Значения не верны", v, getResponse().jsonPath().get((String) k).toString()));
     }
 }
